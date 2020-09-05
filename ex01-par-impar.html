@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de documento HTML</title>
+    <script>
+        // 'use strict' impede que variáveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variáveis diretamente é má prática de
+        // programação
+        'use strict'
+
+        /*
+            Peça ao usuário para informar um número, usando
+            prompt(). Determine se o número digitado é par
+            ou ímpar e informe ao usuário usando alert().
+        */
+
+         // prompt() sempre recolhe respostas do tipo string
+
+         // Por isso, vamos *tentar* converter a entrada do usuario
+         // em numero inteiro usando -- >parseInt
+
+        let resultado
+        let num = parseInt(prompt('Digite um numero inteiro?'))
+        
+        // let resultado = num % 2 (opcional)
+
+        if(isNaN(num)) {
+            alert('ERRO: o valor informado NAO É um numero inteiro valido!')
+        } 
+        else if(num % 2 == 0) {
+            alert('O numero é PAR') 
+        } 
+        else{
+            alert('O numero é IMPAR')
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
