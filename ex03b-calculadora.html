@@ -43,30 +43,43 @@
             temErro = true
         }
 
-        else if(oper == '+') {
-
-            res = num1 + num2
-        }
-
-        else if(oper == '-') {
-
-            res = num1 - num2
-        }
-
-        else if(oper == '*' || oper == 'x' || oper == 'X') {
-
-            res = num1 * num2
-        }
-
-        else if(oper == '/' || oper == ':') {
-
-            res = num1 / num2
-        }
+            // switch(oper) 
+            // case ... [oper]
+            // (confere a variavel oper)
+            // brake
+            // default: (Se nao entrar em nenhum case)
 
         else {
 
-            alert('ERRO: o poperador informado é invalido.')
-            temErro = true
+            switch(oper) {
+
+                case '+':
+
+                    res = num1 + num2
+                    break
+
+                case '-':
+                    
+                    res = num1 - num2
+                    break
+
+                case 'X':       // case vazio
+                case 'x':       // case vazio
+                case '*':
+
+                    res = num1 * num2
+                    break
+
+                case '/':       // case vazio
+                case ':':
+                    
+                    res = num1 / num2
+                    break
+
+                default:        // se nao entrar em nenhum case
+                    alert('ERRO: o operador informado é invalido.')
+                    temErro = true    
+            }
         }
 
         if(!temErro) {
@@ -74,7 +87,8 @@
         //num2 + ' é igual a ' + res + '.')    
 
         // Usando string template (que usa acentos graves - backtick)
-        document.write(`O resultado da operacao: ${num1} ${oper} ${num2} é igual a ${res}.`)
+        document.write(`O resultado da operacao:<br> ${num1} ${oper} ${num2}
+            é igual a ${res}.`)
         }
         
         
