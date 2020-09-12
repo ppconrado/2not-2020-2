@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //'use strict' impede que variaveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variaveis diretamente é má pratica de
+        // programação
+        'use strict'
+        
+        /*
+            Loop da soma dos numeros ate que seja zero.
+            Loop ideal para entrada de USUARIO
+            
+        */
+
+        let soma = 0  // let gera variave que morre no loop e tem de criar outra
+        let num    // Atribui num undefined --> undifined != 0 warning (true)
+
+        do {
+
+            num = Number(prompt('Digite um numero para somar (ou 0 para terminar):'))
+
+            if(!isNaN(num)) {
+                soma += num
+
+            }
+
+        } while(num != 0)
+
+        document.write(`A soma dos numeros informados é ${soma}.`)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
