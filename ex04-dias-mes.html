@@ -23,6 +23,107 @@
             FEVEREIRO: 28 dias (29 em anos bissextos)
         */
 
+        
+        let ano = parseInt(prompt('Informe um ano maior ou igual a 1582 [AAAA]:'))
+
+        let bissexto
+
+        /*
+
+        if(isNaN(ano) || ano < 1582) {
+            alert('ERRO: O ano informado é invalido!')
+        } 
+        else if(ano % 400 == 0 || (ano % 4 == 0 && ano % 100 !== 0)) {
+            alert('O ano informado é BISSEXTO') 
+            bissexto = 'S'
+        } 
+        else{
+            alert('O ano informado NÃO é BISSEXTO')
+            bissexto = 'N'
+        }
+
+        */
+
+        let mes = (prompt('Digite o numero do mês correspondente ao mês do ano [1..12]:'))
+
+        let dias, nomeMes, temErro = false
+
+        // Teste de validacao dos numeros
+
+        if(isNaN(mes) || (mes <= 0) || (mes > 12)) {
+            alert('ERRO: O numero do mês informado é invalido.')
+            temErro = true
+        }
+
+            // switch(oper) 
+            // case ... [oper]
+            // (confere a variavel oper)
+            // brake
+            // default: (Se nao entrar em nenhum case)
+
+        else {
+
+            switch(mes) {
+
+                case '1':
+                    nomeMes = 'Janeiro'
+                case '3':
+                    nomeMes = 'Março'
+                case '5':
+                    nomeMes = 'Maio'
+                case '7':
+                    nomeMes = 'Julho'
+                case '8':
+                    nomeMes = 'Agosto'
+                case '10':
+                    nomeMes = 'Outubro'
+                case '12':
+                    nomeMes = 'Dezembro'        
+
+                    dias = 31
+                    break
+
+                case '2':
+                    nomeMes = 'Fevereiro'
+         
+                break
+
+                case '4':
+                    nomeMes = 'Abril'       
+                case '6':
+                    nomeMes = 'Junho'       
+                case '9':
+                    nomeMes = 'Setembro'
+                case '11':  
+                    nomeMes = 'Novembro'
+
+                    dias = 30
+                    break
+
+                default:        // se nao entrar em nenhum case
+                alert('ERRO: o operador informado é invalido.') 
+                    temErro = true    
+            }
+        }
+
+        if(ano % 400 == 0 || (ano % 4 == 0 && ano % 100 !== 0)) {
+            alert('O ano informado é BISSEXTO') 
+            
+        } 
+        else{
+            alert('O ano informado NÃO é BISSEXTO')
+            bissexto = 'N'
+        }
+
+
+        if(!temErro) {
+        // document.write('O resultado da operacao: ' + num1 ' ' + oper + ' ' +
+        //num2 + ' é igual a ' + res + '.')    
+
+        // Usando string template (que usa acentos graves - backtick)
+        document.write(`O mês de ${nomeMes} tem ${dias} dias.`)
+        }
+
     </script>
 </head>
 <body>
