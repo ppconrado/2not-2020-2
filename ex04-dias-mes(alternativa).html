@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Modelo de documento HTML</title>
     <script>
         // 'use strict' impede que variáveis sejam declaradas
         // sem o uso de let, var ou const
@@ -23,18 +23,62 @@
             FEVEREIRO: 28 dias (29 em anos bissextos)
         */
 
-        // Aluno: JOSE PAULO ARHETTI CONRADO - 2. ADS NOTURNO
+        // --------Declaracao das variaveis globais----------------------
 
-        let nomeMes, dias, temErro
+        let bissexto, temErro, mesErrado, mes, nomeMes, dias
 
-        let mes = prompt('Digite o numero do mês do ano [1..12]:')
+        // Informativo e entrada ddo ano--------------------------------------
 
-        switch(mes) {
+        alert('Atençao: Fevereiro tem o numero de dias diferente para anos bissextos')
+        let ano = parseInt(prompt('Informe um ano maior ou igual a 1582 [AAAA]:'))
+
+        // Analise do ano digitado valido e se é bissexto e nao bissexto------        
+
+        if(isNaN(ano) || ano < 1582) {
+            alert('ERRO: O ano informado é invalido!')
+            temErro = false
+        } 
+        else if(ano % 400 == 0 || (ano % 4 == 0 && ano % 100 !== 0)) {
+            alert('O ano informado é BISSEXTO') 
+            bissexto = true
+            temErro = true
+        } 
+        else{
+            alert('O ano informado NÃO é BISSEXTO')
+            bissexto = false
+            temErro = true
+        }
+
+        // ---Entrada para escolha do mes e saida do programa caso ano invalido---
+
+            if(temErro == true) {
+            mes = (prompt('Digite o numero do mês do ano [1..12]:'))
+        
+
+        // Teste de validacao do mes digitado
+
+        if(isNaN(mes) || (mes <= 0) || (mes > 12)) {
+            alert('ERRO: O numero do mês informado é invalido.')
+            mesErrado = true
+        
+        
+            // switch(oper) 
+            // case ... [oper]
+            // (confere a variavel oper)
+            // brake
+            // default: (Se nao entrar em nenhum case)
+
+           
+    
+        else {
+
+            switch(mes) {
 
                 case '1':
                     nomeMes = 'Janeiro'
                     dias = 31
                     break
+        
                 case '3':
                     nomeMes = 'Março'
                     dias = 31
@@ -59,10 +103,19 @@
                     nomeMes = 'Dezembro'        
                     dias = 31
                     break
+
                 case '2':
                     nomeMes = 'Fevereiro'
+
+                if(bissexto == true){
+                    dias = 29
+                }
+                else{
                     dias = 28
-                    break
+                }
+                    
+                break
+
                 case '4':
                     nomeMes = 'Abril' 
                     dias = 30
@@ -80,15 +133,20 @@
                     dias = 30
                     break
 
-                default:        // se nao entrar em nenhum case
-                alert('ERRO: o numero informado é invalido.') 
-                temErro = true    
+                //default:        // se nao entrar em nenhum case
+                //alert('ERRO: o numero informado é invalido.') 
+                    //temErro = true    
             }
-
-            
-        if(!temErro == true) {
-        document.write(`O mês de ${nomeMes} possui ${dias} dias.`) 
         }
+
+    
+        }    
+        if(mesErrado == false) {
+        document.write(`O mês de ${nomeMes} do ano de ${ano} tem ${dias} dias.`) 
+        }
+
+    
+    }
 
     </script>
 </head>

@@ -36,7 +36,63 @@
             Peça para o usuário informar um dígito de 0 a 9 e, usando a estrutura
             de decisão switch..case, informe ao usuário a letra correspondente
             ao dígito informado.
+        
+
+
+            // switch(oper) 
+            // case ... [oper]
+            // (confere a variavel oper)
+            // brake
+            // default: (Se nao entrar em nenhum case
+
         */
+
+        // Aluno: JOSE PAULO ARHETTI CONRADO - 2. ADS NOTURNO
+
+        let letra, temErro   
+
+        let num = prompt('Digite um numero de [0..10]:')
+
+        switch(num) {
+
+            case '0':
+                    letra = 'A'
+                    break
+            case '1':
+                    letra = 'B'
+                    break
+            case '2':
+                    letra = 'C'
+                    break
+            case '3':
+                    letra = 'D'
+                    break           
+            case '4':
+                    letra = 'E'
+                    break       
+            case '5':
+                    letra = 'F'
+                    break      
+            case '6':
+                    letra = 'G'
+                    break       
+            case '7':
+                    letra = 'H'
+                    break      
+            case '8':
+                    letra = 'I'
+                    break
+            case '9':
+                    letra = 'J'
+                    break                 
+            default:
+                    alert('Voce digitou um numero invalido') 
+                    temErro = true   
+        }    
+
+        if(!temErro == true){
+        document.write(`A letra correspondente ao ${num} é a letra: ${letra}`) 
+        }
 
     </script>
 </head>
