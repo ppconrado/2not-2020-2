@@ -1,70 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <title>Modelo de documento HTML</title>
-
-
 <head>
-
-</head>
-<body>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    
-
-    
-    <ul>
+</head>
+<body>
     <h1>Titulo da pagina</h1>
     <p>Isto e um paragrafo</p>
+    <ul> 
+        <li>Primeiro item</li>
+        <li id="intruso">Intruso</li>
+        <li>Segundo item</li>
+        <li id="item-x">Terceiro item</li>
     </ul>
-    
     <script>
+    
+        /*
+        QUANDO O JAVASCRIPT É UTILIZADO PARA MANIPULAR HTML,
+        //A SEÇÃO <SCRIPT> DEVE SER POSICIONADA NA PARTE FINAL DO ARQUIVO,
+        //LOGO ANTES DE </BODY
+        */
+
         //'use strict' impede que variaveis sejam declaradas
         // sem o uso de let, var ou const
         // Inicializar variaveis diretamente é má pratica de
         // programação
         'use strict'
-        
-        /*
-        DOM = DOCUMENT OBJECT MODEL (Modelo de Objetos do Documento)
-        */
-
-        // document.querySelector: retorna o primeiro elemento de seu tipo
+    
         const cabec = document.querySelector('h1')
 
-        // Alternando texto interno do elemento
+         // Alternando texto interno do elemento
         cabec.innerHTML = 'Manipulando o Document Object Model (DOM)'
 
         /* 
-        Alterando o texto do SEGUNDO item
+            Alterando o texto do SEGUNDO item
         */
-
         // document.querySelectorAll: captura TODOS os elementos do tipo informado
         const itens = document.querySelectorAll('li')
 
-        // Em JavaScript, o primeiro elemento e o indice 0 (Zero) 
-    
+        // Em JavaScript, o primeiro elemento é o indice 0 (Zero) 
         itens[1].innerHTML = 'Bertoldo'
 
         // Forma Tradicional
-
         const itens2 = document.getElementsByTagName('li')
-        itens2[2] = 'Jeronimo'
+        itens2[2].innerHTML = 'Jerônimo'
 
         // Capturando um elemento por id da forma antiga
-        cont elemIntruso = document.getElementsByTagName('Intruso')
+        const elemIntruso = document.getElementById('intruso')
         elemIntruso.innerHTML = 'SOU UM INTRUSO'
 
         // Capturando um elemento por id da forma nova (ES5+)
-        // Para capturar por id com o querySelector(), e necessario usar cerquinha'
+        // Para capturar por id com o querySelector(), é necessario usar #
         // antes do id do elemento
 
-        const elemX = document.querySelector('£item-x')
+        const elemX = document.querySelector('#item-x')
         elemX.style.backgroundColor = 'yellow'
 
-    </script>    
+    </script>       
 </body>
 </html>
