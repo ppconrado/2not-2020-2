@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //'use strict' impede que variaveis sejam declaradas
+        // sem o uso de let, var ou const
+        // Inicializar variaveis diretamente é má pratica de
+        // programação
+        'use strict'
+        
+       for(let i = 1; i <= 400; i = i + 1) {   
+            if(i % 29 == 0) {
+            document.write(i + '<br>')
+            }
+        }
+
+        
+        let letra, temErro
+        let num = prompt('Digite o KM desejado?') 
+         
+
+        switch(num) {
+
+            case '92':
+            case '177':
+            case '291':
+            case '388':
+                    letra = 'Megastore Magazine Luiza'
+                    break           
+            case '153':        
+            case '356':
+                    letra = 'Calçados Rafarillo'
+                    break      
+            case '187':
+                    letra = 'Viacao sao jose'
+                    break       
+            case '210':
+                    letra = 'Padaria Estrela'
+                    break      
+            case '314':
+                    letra = 'Jubileu do Amendoim'
+                    break
+            case '367':
+                    letra = 'Aquaparque unidade II'
+                    break                 
+            default:
+                    alert('Vapo, tem nada aqui nao. Segue reto toda a vida. meu fiii') 
+                    temErro = true   
+        }    
+
+        if(!temErro == true){
+        document.write(`O KM correspondente ${num} Tem uma francanice ${letra}`) 
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
