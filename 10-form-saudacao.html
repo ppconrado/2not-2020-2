@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
-    <style>
-        label {
-            /* Forçar o modo de exibição em bloco */
-            display: block;
-        }    
 
-        fieldset label {
-            display: inline;
-        } 
+        <style>
+            label {
+                /* Forçar o modo de exibição em bloco */
+                display: block;
+            }    
 
-        fieldset {
-            border: 1px solid lightgray;
-            border-radius: 8px;
-            width: 200px;
-        }   
+            fieldset label {
+                display: inline;
+            } 
 
-        div, fieldset {
-            margin-bottom: 15px;
-        }
+            fieldset {
+                border: 1px solid lightgray;
+                border-radius: 8px;
+                width: 200px;
+            }   
 
-        /*div {
-            border: 1px dotted red;
-         }
-        */
+            div, fieldset {
+                margin-bottom: 15px;
+            }
 
-    </style>
+            /*div {
+                border: 1px dotted red;
+            }
+            */
+
+        </style>
 
 </head>
+
 <body>
+
     <h1>Formulario de Saudacao</h1>
 <div>
     <label>Primeiro Nome</label>
@@ -108,7 +113,7 @@
     /* PASSO 2: validaçao da entrada de usuario */
     function validar() {
 
-        let valido = 
+        let valido 
             // trim(): retira espaços em branco no inicio e no final de uma string
         if(elPrimeiroNome.value.trim() == '') {
             alert('O primeiro nome deve ser informado.')
@@ -158,4 +163,5 @@
 
     
 </body>
+
 </html>
