@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX10-Calculadora-DOM</title>
+
+    <style>
+        label {
+            /* Forçar o modo de exibição em bloco */
+            display: block;
+        }
+        fieldset label {
+            display: inline;
+        }
+        fieldset {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+            width: 200px;
+        }
+        div, fieldset {
+            margin-bottom: 15px;
+        }
+        /*div {
+            border: 1px dotted red;
+        }*/
+    </style>
+
+    
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">177000.000000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100D1709B3E936BE4488A7EEB682FDD8227</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+    <h1>Calculadora</h1>
+
+    <div>
+        <label>Digite o PRIMEIRO numero:</label>
+        <input id="primeiro" type="number" min="1" max="10">
+    </div>
+
+    <div>
+        <label>OPERAÇÃO aritmética desejada:</label>
+        <select id="operacao">
+            <option>(Selecione)</option>
+            <option>Soma</option>
+            <option>Subtração</option>
+            <option>Multiplicação</option>
+            <option>Divisao</option>
+            <option>Potenciação</option>
+            <option>Resto da divisão</option>
+        </select>   
+    </div>
+
+    <div>
+        <label>Digite o SEGUNDO numero:</label>
+        <input id="segundo" type="number" min="1" max="10">
+    </div>
+
+    <div>
+        <label>RESULTADO</label>
+        <span id="resultado"></span>
+    </div>
+
+    <div>
+        <button id="calcular">Calcular</button>
+    </div>
+
+    <script>
+            // 'use strict' impede que variáveis sejam declaradas
+            // sem o uso de let, var ou const
+            // Inicializar variáveis diretamente é má prática de
+            // programação
+            'use strict'
+        
+            /* 
+
+                Monte um formulário com os seguintes campos:
+                * Primeiro número (input numérico)
+                * Operação aritmética (select, com as opções de soma, subtração,
+                    multiplicação, divisão, potenciação e resto da divisão)
+                * Segundo número (input numérico)
+                * Div para exibição do resultado da operação aritmética
+                * Botão "calcular"
+
+                Validações:
+                * Os campos de número devem estar preenchidos e com números válidos
+                * Deve ter sido selecionada uma operação artimética válida
+
+            */
+
+        /* PASSO 1: captura dos elementos HTML
+         el --> element: el...... 
+         document.getElementById('.....')
+         document.querySelector('#.....')
+         
+        */
+
+        const elPrimeiro = document.getElementById('primeiro')
+        const elOperacao = document.getElementById('operacao')
+        const elSegundo = document.getElementById('segundo')
+        const elResultado = document.querySelector('#resultado')
+        const elCalcular = document.querySelector('#calcular')
+        
+        /* PASSO 2: validação da entrada de usuário */
+
+        function validar() {
+
+            let valido = true
+            
+            // trim(): retira espaços em branco no início e no final de uma string
+            if(elPrimeiro.value.trim() == '') {
+                alert('O primeiro numero deve ser informado.')
+                elPrimeiro.focus() // Coloca o foco no controle
+                valido = false
+            }
+            else if(elOperacao.selectedIndex <= 0) {
+                alert('Escolha uma operação valida.')
+                elOperacao.focus()
+                valido = false
+            }    
+            else if(elSegundo.value.trim() == '') {
+                alert('O segundo numero deve ser informado.')
+                elSegundo.focus()
+                valido = false
+            }
+            
+            return valido
+        }
+
+        function calculo() {
+            if(validar()) {
+                let resultado = ''
+                let primeiro = Number(elPrimeiro.value) 
+                let operador = ''
+                let segundo = Number(elSegundo.value)     
+
+                switch(elOperacao.selectedIndex) {
+                    case 1:
+                        operador += ' + '
+                        elResultado.innerText = (primeiro + segundo).toFixed(2)
+                        break
+                    case 2:
+                        operador += ' - '
+                        elResultado.innerText = (primeiro - segundo).toFixed(2)
+                        break
+                    case 3:
+                        operador += ' x '
+                        elResultado.innerText = (primeiro * segundo).toFixed(2)
+                        break
+                    case 4:
+                        operador += ' : '
+                        elResultado.innerText = (primeiro / segundo).toFixed(2)
+                        break
+                    case 5:
+                        operador += ' ^ '
+                        elResultado.innerText = (primeiro ** segundo).toFixed(2)
+                        break
+                    default:
+                        operador += ' % '
+                        elResultado.innerText = (primeiro % segundo).toFixed(2)
+                }
+
+                alert(`RESULTADO ${primeiro} ${operador} ${segundo} = ${elResultado.innerText}`)
+
+            }
+        } 
+         elCalcular.addEventListener('click', calculo)
+
+    </script>   
+</body>
+</html>
