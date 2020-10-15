@@ -3,48 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Modelo de documento HTML</title>
     <script>
-        //'use strict' impede que variaveis sejam declaradas
+        // 'use strict' impede que variáveis sejam declaradas
         // sem o uso de let, var ou const
-        // Inicializar variaveis diretamente é má pratica de
+        // Inicializar variáveis diretamente é má prática de
         // programação
         'use strict'
-        
-         /*
-            Caracteristicas do loop for
-            1) Local do teste: no INICIO.
-            2) Garantia de execucao: 0 (zero)
-            3) Numero de repeticoes: determinado ou determinavel
-        
-        */
-        // Escrever os numeros de 1 a 10
-        // Tres partes do for
-        // 1) Inicializacao
-        // 2) Condicao
-        // 3) Incremento (poderoso)
 
-        for(let i = 1; i <= 10; i++) {    // pode usar i += 1 ou i = i + 1
-            document.write(i + '<br>')
-        }
+        /*
+            Características do loop for
+            1) Local do teste: no início
+            2) Garantia de execução: 0 (zero)
+            3) Número de repetições: determinado ou determinável
+        */        
         
-        // Traco HTML
-        document.write('<hr>')
-
-        // Escrever os numeros de 1 a 10, saltando de 2 em 2
-        for(let i = 1; i<= 10; i += 2) {
+        // Escrever os números de 1 a 10
+        // Três partes do for, separadas por ;
+        // 1) Inicialização
+        // 2) Condição
+        // 3) Incremento
+        for(let i = 1; i <= 10; i++) {
             document.write(i + '<br>')
         }
 
-        // Traco HTML
+        // Traço HTML
         document.write('<hr>')
 
-        // Escrever os numeros de 1 a 10, em ordem reversa
-        for(let i = 10; i>= 10; i--) {
-                document.write(i + '<br>')
+        // Escrever os números de 1 a 10, saltando de 2 em 2
+        for(let i = 1; i <= 10; i += 2) {
+            document.write(i + '<br>')
         }
 
+        // Traço HTML
+        document.write('<hr>')
 
+        // Escrever os números de 10 a 1, em ordem reversa
+        for(let i = 10; i >= 1; i--) {
+            document.write(i + '<br>')
+        }
+        
     </script>
 </head>
 <body>

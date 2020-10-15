@@ -19,35 +19,28 @@
             
             Utilizando um loop for, calcule a somatória de todos os números entre 
             os dois valores informados (inclusive).            
-
         */
 
         let num1, num2
-    do {
-        do {
-            // Tirou o let de dentro do loop
-            num1 = parseInt(prompt('Digite o primeiro numero:'))
-
-        } while(isNaN(num1))  // Garante que sao validos
-
 
         do {
-            // Tirou o let de dentro do loop
-            num2 = parseInt(prompt('Digite o segundo numero:'))
+            
+            do {
+                num1 = parseInt(prompt('Informe o primeiro número:'))
+            } while(isNaN(num1))
 
-        } while(isNaN(num2))   // Garante que sao validos
+            do {
+                num2 = parseInt(prompt('Informe o segundo número:'))
+            } while(isNaN(num2))
+        
+        } while(num1 >= num2)  // Garante que num1 < num2
+        
+        let soma = 0
+        for(let i = num1; i <= num2; i++) {
+            soma += i // Equivale a: soma = soma + i
+        }
 
-    } while (num1 >= num2)  // Garante que num1 < num2 
-
-
-    let soma = 0
-    
-    for(let i = num1; i <= num2; i++) { 
-        soma += 1 // Equivale a: soma = soma + 1
-    }
-
-    document.write(`A Soma dos numeros entre ${num1} e ${num2} é ${soma}.`)
-
+        document.write(`A soma dos números entre ${num1} e ${num2} é ${soma}.`)
 
     </script>
 </head>

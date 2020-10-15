@@ -16,22 +16,19 @@
             Peça ao usuário para informar um número MAIOR QUE 1000.
             Utilize do..while para garantir que foi informado um número válido
             e maior que 1000.
-
             Em seguida, usando o loop while, imprima com document.write() 
             todos os números múltiplos de 13 ou de 23 existentes entre 1 e 
             o número informado.
-
         */
-        let num
 
-         do {
-            // Tirou o let de dentro do loop
-            num = parseInt(prompt('Digite um numero maior que 1000 (ou 0 para terminar):'))
-        } while(isNaN(num) || num <= 1000)
+        let num
+        do {
+            num = parseInt(prompt('Informe um número maior que 1000:'))
+        } while (isNaN(num) || num <= 1000)
 
         let i = 1
         while(i <= num) {
-            if (i % 13 == 0 || i % 23 == 0) {   // Numeros multiplos de 13 OU 23 entre 1 e N
+            if(i % 13 == 0 || i % 23 == 0) {
                 document.write(i + '<br>')
             }
             i++ // Equivale a i = i + 1
