@@ -4,7 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <script>
+
+    <h1>Gerar Padrão</h1>
+    
+    <div>
+        <label>Digite o CARACTERE desejado para o Padrão de repetições:</label>
+        <input id="caractere" type="text" min="1" max="1" size="1">
+    </div>
+
+    <br>
+
+    <div>
+        <label>Digite a QUANTIDADE desejada de repetições [Entre 1 e 100] :</label>
+        <input id="qtd" type="number" min="1" max="100">
+    </div>
+
+    <br>
+
+    <div>
+        <button id="gerar">Gerar</button>
+    </div>
+    
+    <br>
+
+    <div>
+        <label>Resultado Padrão Gerado</label>
+        <span id="resultado"></span>
+    </div>
+
+    
+
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
+<mso:Order msdt:dt="string">176900.000000000</mso:Order>
+<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
+<mso:ContentTypeId msdt:dt="string">0x010100D1709B3E936BE4488A7EEB682FDD8227</mso:ContentTypeId>
+<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
+<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+
+<body>
+
+<script>
         // 'use strict' impede que variáveis sejam declaradas
         // sem o uso de let, var ou const
         // Inicializar variáveis diretamente é má prática de
@@ -44,21 +91,65 @@
             ***********
         */
 
+        /* PASSO 1: captura dos elementos HTML */
+
+        const elCaractere = document.querySelector('#caractere')  
+        const elQtd = document.querySelector('#qtd')    
+        const elGerar = document.querySelector('#gerar')
+        const elResultado = document.querySelector('#resultado')
+        
+
+        /* PASSO 2: validação da entrada de usuário */
+
+        function validar() {
+
+            let valido = true
+            
+            // trim(): retira espaços em branco no início e no final de uma string
+
+            if(elCaractere.value.trim() == '') {
+                alert('Somente um CARACTERE deve ser escolhido.')
+                elCaractere.focus() // Coloca o foco no controle
+                valido = false
+            }
+            else if(isNaN(elQtd.value) || elQtd.value < 1 || elQtd.value > 100) {
+                alert('Uma QUANTIDADE entre [1 e 100] deve ser informado.')
+                elQtd.focus()
+                valido = false
+            }
+            
+            return valido 
+        }
+
+
+        function gerar() {
+            if(validar()) {
+
+                let resultado = 'pp'
+                let qtd = parseInt(prompt(elQtd.value))   
+                let caractere = prompt(elCaractere.value)     // Forma moderna
+            
+            let i = qtd
+            while(i <= qtd) {
+            if(i % 13 == 0 || i % 23 == 0) {
+                document.write(i + '<br>')
+            }
+            i++ // Equivale a i = i + 1
+        } 
+                
+
+                
+
+                resultado += elQtd.value + ' ' + elCaractere.value
+                resultado += ', como posso ser útil?'
+
+
+            }
+        }
+
+        elGerar.addEventListener('click', gerar)
+
     </script>
 
-<!--[if gte mso 9]><xml>
-<mso:CustomDocumentProperties>
-<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Editor>
-<mso:Order msdt:dt="string">176900.000000000</mso:Order>
-<mso:ComplianceAssetId msdt:dt="string"></mso:ComplianceAssetId>
-<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author msdt:dt="string">FAUSTO GONCALVES CINTRA</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_Author>
-<mso:ContentTypeId msdt:dt="string">0x010100D1709B3E936BE4488A7EEB682FDD8227</mso:ContentTypeId>
-<mso:_SourceUrl msdt:dt="string"></mso:_SourceUrl>
-<mso:_SharedFileIndex msdt:dt="string"></mso:_SharedFileIndex>
-</mso:CustomDocumentProperties>
-</xml><![endif]-->
-</head>
-<body>
-    
 </body>
 </html>

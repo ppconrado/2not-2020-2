@@ -11,31 +11,32 @@
         // programação
         'use strict'
         
-        // parseInt() *tenta* converter uma string em número inteiro
-        // Se conseguir, o resultado será o número inteiro contido na string
-        // Se falhar, o resultado será NaN (Not a Number)
-        let num = parseInt(prompt('Informe um número inteiro:'))
+        /*
+            Loop da soma dos números até que seja zero
+        */
 
-        // if é sempre escrito minúsculo
-        // é obrigatoriamente seguido de parênteses
-        // a condição de teste vai dentro dos parênteses
-        
-        // isNaN pergunta se um valor NÃO É um número válido
-        if(isNaN(num)) {
-            alert('ERRO: o valor informado NÃO É um número inteiro válido!')
-        }
-        else if(num > 0) { 
-            alert('O número informado é POSITIVO')
-        }
-        // else if são duas palavras separadas
-        else if(num == 0) {
-            alert('O número informado é ZERO')
-        }
-        // else é sempre escrito minúsculo
-        // tem seu próprio bloco de comandos (entre {})
-        else {
-            alert('O número informado é NEGATIVO')
-        }
+        let soma = 0
+        let num
+
+        /*
+            Características do loop do..while
+            1) Local do teste: no final
+            2) Garantia de execução: 1 (um)
+            3) Número de repetições: indeterminado
+        */
+
+        do {
+            num = Number(prompt('Digite um número para somar (ou 0 para terminar):'))
+
+            if(!isNaN(num)) {
+                soma += num
+            }
+
+        } while(num != 0)
+
+        document.write(`A soma dos números informados é ${soma}.`)
+
+    </script>
     </script>
 </head>
 <body>
