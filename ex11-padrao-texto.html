@@ -16,7 +16,7 @@
 
     <div>
         <label>Digite a QUANTIDADE desejada de repetições [Entre 1 e 100] :</label>
-        <input id="qtd" type="number" min="1" max="100">
+        <input id="repeticao" type="number" min="1" max="100">
     </div>
 
     <br>
@@ -31,8 +31,6 @@
         <label>Resultado Padrão Gerado</label>
         <span id="resultado"></span>
     </div>
-
-    
 
 
 <!--[if gte mso 9]><xml>
@@ -93,8 +91,8 @@
 
         /* PASSO 1: captura dos elementos HTML */
 
-        const elCaractere = document.querySelector('#caractere')  
-        const elQtd = document.querySelector('#qtd')    
+        const elCaractere = document.querySelector('#caractere')      
+        const elRepeticao = document.querySelector('#repeticao')  
         const elGerar = document.querySelector('#gerar')
         const elResultado = document.querySelector('#resultado')
         
@@ -112,38 +110,29 @@
                 elCaractere.focus() // Coloca o foco no controle
                 valido = false
             }
-            else if(isNaN(elQtd.value) || elQtd.value < 1 || elQtd.value > 100) {
+            else if(isNaN(elRepeticao.value) || elRepeticao.value < 1 || elRepeticao.value > 100) {
                 alert('Uma QUANTIDADE entre [1 e 100] deve ser informado.')
-                elQtd.focus()
+                elRepeticao.focus()
                 valido = false
             }
             
             return valido 
         }
 
+        
 
         function gerar() {
+
             if(validar()) {
 
-                let resultado = 'pp'
-                let qtd = parseInt(prompt(elQtd.value))   
-                let caractere = prompt(elCaractere.value)     // Forma moderna
+                let allCharacter = ''
+                //const elCaractere = document.querySelector('#caractere')      
+                //const elQtd = document.querySelector('#qtd')  
             
-            let i = qtd
-            while(i <= qtd) {
-            if(i % 13 == 0 || i % 23 == 0) {
-                document.write(i + '<br>')
-            }
-            i++ // Equivale a i = i + 1
-        } 
-                
-
-                
-
-                resultado += elQtd.value + ' ' + elCaractere.value
-                resultado += ', como posso ser útil?'
-
-
+                for(let i = 0; i < elRepeticao.value ; i++) {
+                    allCharacter += elCaractere.value
+                    elResultado.innerHTML += `<p>${allCharacter}</p>`
+                }
             }
         }
 
