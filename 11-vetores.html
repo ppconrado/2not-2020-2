@@ -34,6 +34,7 @@
         /* unshift(): insere novos elementos no INÍCIO do vetor */
         frutas.unshift('jabuticaba')
         frutas.unshift('amora')
+        console.log(frutas)
 
         /* pop(): retira UM elemento do FINAL do vetor */
         let retirado = frutas.pop() // Retira e coloca em uma variável
@@ -44,6 +45,33 @@
         frutas.shift()      // Retira e perde
         retirado = frutas.shift()   // Retira e coloca em uma variável
         console.log('Retirado:', retirado)
+
+        /* slice(): "fatia" um vetor, gerando um outro vetor apenas com o pedaço desejado
+        Parametros:
+        1. posicao inicial (incluida)
+        2. posicao final (NAO E INCLUIDA)
+
+        */
+
+        let parte = frutas.slice(1, 4);
+        console.log(frutas);
+        console.log(parte);
+
+        // Quando chamado com apenas um parametro, a fatia inclui daquela posicao ate o final do vetor
+
+        let outraParte = frutas.slice(3);
+        console.log(outraParte);
+
+        // Acessando posicao do vetor
+        // A fruta que esta na terceira posicao
+
+        console.log(frutas[2]);
+
+        // A primeira fruta
+        console.log(frutas[0]);
+
+        // A ultima fruta 
+        console.log(frutas[frutas.length - 1]);
 
         /* splice(): insere elementos em uma posição específica do vetor 
             Parâmetros:
@@ -105,6 +133,36 @@
             console.log('Não existe')
         }
 
+        // Percurso na ordem crescente
+
+        let i;
+
+        for (i = 0; i < frutas.length; i++) {
+            console.log(frutas[i]);
+        };
+
+        console.log(`valor final de i:`, i);
+
+        console.log(`---------------------------`);
+
+        // Percurso na ordem decrescente
+
+        for (let i = frutas.length - 1; i >= 0; i--) {
+            console.log(frutas[i]);
+        }
+
+        // Percurso usando o LOOP for..of
+        // 1. SEMPRE percorre TODOS ods elementos, do primeiro ao ultimo
+        // 2 Nao e possivel usa-lo para percorrer na ordem decrescente
+        
+        // frutas(plural) e o vetor
+        // fruta (singular) e uma variavel que, a cada interacao do loop,
+        // recebera o valor de um dos elementos do vetor, na ordem
+
+        for (let fruta of frutas) {
+            console.log(fruta);
+        }
+        
 
     </script>
 </head>
